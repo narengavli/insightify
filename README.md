@@ -9,7 +9,7 @@ Insightify is an online application that helps you to format text and paragraphs
 <h4>Live Web Site Link :</h4>
 <a href="https://narengavli.github.io/insightify/" target="_blank"><img src="https://img.shields.io/badge/INSIGHTIFY-LIVE%20WEBSITE-blue"/></a>
 
-<h4>Photo of Web Site Home Page :</h4>
+<h4>Home Page :</h4>
 <center><img src="https://github.com/narengavli/insightify/blob/main/img/homepage.png"></center>
 
 <!-- Thank You -->
