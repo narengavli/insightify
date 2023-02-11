@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="Keywords"
+      content="Insightify,Text Editor,Upper Case,Lower Case,Line Breaker,Space Remover,Paragraph Formatter"
+    />
+    <meta
+      name="Description"
+      content="Insightify is an online application that helps you to format text and paragraphs."
+    />
+
+    <!-- Title -->
+    <title>Insightify</title>
+    <link rel="icon" type="image/x-icon" href="./img/insightify.png" />
+
+    <!-- Link CSS File -->
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
+    <link rel="stylesheet" href="./css/text-editor.css" />
+    <link rel="stylesheet" href="./css/tooltip.css" />
+
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/91b7a0e05b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div>
+        <img src="./img/insightify-logo.png" />
+      </div>
+      <button id="funcModalBtn">Function Cheat Sheet</button>
+    </nav>
+
+    <!-- Main Body -->
+    <main>
+      <!-- Function Button -->
+      <div class="func-btn-box">
+        <button class="func-btn" onclick="txt2upper()">Upper Case</button>
+        <button class="func-btn" onclick="txt2lower()">Lower Case</button>
+        <button class="func-btn" onclick="txt2sentence()">Sentence case</button>
+        <button class="func-btn" onclick="txt2title()">Title Case</button>
+        <button class="func-btn" onclick="txt2alternat()">
+          Alternating Case
+        </button>
+        <button class="func-btn" onclick="txt2linebr()">Line Breaker</button>
+        <button class="func-btn" onclick="txt2paragraph()">
+          Paragraph Formatter
+        </button>
+        <button class="func-btn" onclick="spaceRemover()">
+          Extra Space Remover
+        </button>
+      </div>
+
+      <!-- Input Output container -->
+      <div class="text-editor">
+        <div class="title-bar">
+          <button class="title-bar-btn">Playground</button>
+          <div class="tooltip">
+            <button
+              onclick="txt2clipboard()"
+              onmouseout="outFunc()"
+              class="title-bar-btn"
+            >
+              <span class="tooltiptext" id="copyTooltip"
+                >Copy to clipboard</span
+              >
+              Copy
+            </button>
+          </div>
+        </div>
+        <div class="work-space">
+          <textarea
+            class="inputbox"
+            id="input-txt"
+            placeholder="Write text here.."
+            oninput="textboxlive()"
+            autofocus
+          ></textarea>
+        </div>
+        <div class="status-bar">
+          <span id="status">Line 0, Word 0</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="copy-right">COPYRIGHT &#169; 2023 | NAREN GAVLI</div>
+      <div class="media-icon">
+        <button class="media-btn">
+          <a href="https://narengavli.github.io/" target="_blank">
+            <i class="fa-lg fa-brands fa-chrome"></i>
+          </a>
+        </button>
+        <button class="media-btn">
+          <a href="https://www.linkedin.com/in/narengavli/" target="_blank">
+            <i class="fa-lg fa-brands fa-linkedin-in"></i>
+          </a>
+        </button>
+        <button class="media-btn">
+          <a href="https://twitter.com/naren_gavli" target="_blank">
+            <i class="fa-lg fa-brands fa-twitter"></i>
+          </a>
+        </button>
+        <button class="media-btn">
+          <a href="https://github.com/narengavli" target="_blank">
+            <i class="fa-lg fa-brands fa-github"></i>
+          </a>
+        </button>
+      </div>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="funcList" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>Function Cheat Sheet</div>
+          <div><span class="close">&times;</span></div>
+        </div>
+
+        <div class="modal-body">
+          <div class="func-box">
+            <div class="func-name">Upper Case</div>
+            <div class="func-desc">
+              The Upper Case function is used to convert a string to uppercase
+              letters.
+            </div>
+            <div class="func-exp">
+              <div class="exp-title">Example</div>
+              <div class="exp-body">
+                <table>
+                  <tr>
+                    <th>Input :</th>
+                    <td>Hello World</td>
+                  </tr>
+                  <tr>
+                    <th>Output :</th>
+                    <td>HELLO WORLD</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="func-box">
+            <div class="func-name">Lower Case</div>
+            <div class="func-desc">
+              The Lower Case function is used to convert a string to lowercase
+              letters.
+            </div>
+            <div class="func-exp">
+              <div class="exp-title">Example</div>
+              <div class="exp-body">
+                <table>
+                  <tr>
+                    <th>Input :</th>
+                    <td>Hello World</td>
+                  </tr>
+                  <tr>
+                    <th>Output :</th>
+                    <td>hello world</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="func-box">
+            <div class="func-name">Sentence Case</div>
+            <div class="func-desc">
+              The Sentence Case function is used to convert the first letter of
+              each sentence in a string to uppercase, and the rest to lowercase.
+            </div>
+            <div class="func-exp">
+              <div class="exp-title">Example</div>
+              <div class="exp-body">
+                <table>
+                  <tr>
+                    <th>Input :</th>
+                    <td>hello world. i am developer.</td>
+                  </tr>
+                  <tr>
+                    <th>Output :</th>
+                    <td>Hello world. I am developer.</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="func-box">
+            <div class="func-name">Title Case</div>
+            <div class="func-desc">
+              The Title Case function is used to convert the first letter of
+              each word in a string to uppercase, and the rest to lowercase.
+            </div>
+            <div class="func-exp">
+              <div class="exp-title">Example</div>
+              <div class="exp-body">
+                <table>
+                  <tr>
+                    <th>Input :</th>
+                    <td>hello world</td>
+                  </tr>
+                  <tr>
+                    <th>Output :</th>
+                    <td>Hello World</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="func-box">
+            <div class="func-name">Alternating Case</div>
+            <div class="func-desc">
+              The Alternating Case function is used to alternate the case of
+              each letter in a string.
+            </div>
+            <div class="func-exp">
+              <div class="exp-title">Example</div>
+              <div class="exp-body">
+                <table>
+                  <tr>
+                    <th>Input :</th>
+                    <td>Hello World</td>
+                  </tr>
+                  <tr>
+                    <th>Output :</th>
+                    <td>hElLo WoRlD</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="func-box">
+            <div class="func-name">Line Breaker</div>
+            <div class="func-desc">
+              A line breaker is a function that splits text into lines so that
+              it fits within a specific width, while maintaining readability.
+              This is done by determining where to break lines in a way that
+              minimizes hyphens and enhances overall visual appearance.
+            </div>
+            <div class="func-exp">
+              <div class="exp-title">Example</div>
+              <div class="exp-body">
+                <table>
+                  <tr>
+                    <th>Input :</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      Do not confuse motion and progress. A rocking horse keeps
+                      moving but does not make any progress.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Output :</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      Do not confuse motion and progress.<br />A rocking horse
+                      keeps moving but does not make any progress.
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="func-box">
+            <div class="func-name">Paragraph Formatter</div>
+            <div class="func-desc">
+              The Paragraph Formatter function is used to format a block of text
+              into properly spaced and indented paragraphs. This typically
+              involves adding line breaks and indentation to create visually
+              distinct paragraphs and improve the readability of the text.
+            </div>
+            <div class="func-exp">
+              <div class="exp-title">Example</div>
+              <div class="exp-body">
+                <table>
+                  <tr>
+                    <th>Input :</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      once there was a hungry fox who stumbled upon a vineyard.
+                      after seeing the round, juicy grapes hanging in a bunch,
+                      the fox drooled. But no matter how high he jumped, he
+                      couldn’t reach for it. So he told himself that it was
+                      probably sour and left. That night, he had to sleep on an
+                      empty stomach.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Output :</th>
+                  </tr>
+                  <tr>
+                    <td style="word-wrap: break-word">
+                      &emsp;Once there was a hungry fox who stumbled upon a
+                      vineyard. After seeing the round, juicy grapes hanging in
+                      a bunch, the fox drooled. But no matter how high he
+                      jumped, he couldn’t reach for it. So he told himself that
+                      it was probably sour and left. That night, he had to sleep
+                      on an empty stomach.
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="func-box">
+            <div class="func-name">Extra Space Remover</div>
+            <div class="func-desc">
+              Extra Space Remover refers to the process of removing any
+              redundant or unnecessary whitespaces from a string. This is
+              typically used to clean up the format of text and make it more
+              readable or easier to process.
+            </div>
+            <div class="func-exp">
+              <div class="exp-title">Example</div>
+              <div class="exp-body">
+                <table>
+                  <tr>
+                    <th>Input :</th>
+                    <td>Hello &emsp; World</td>
+                  </tr>
+                  <tr>
+                    <th>Output :</th>
+                    <td>Hello World</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript Calling -->
+    <script src="./js/modal.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
